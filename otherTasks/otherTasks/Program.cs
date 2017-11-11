@@ -1,4 +1,3 @@
-﻿/* (1) Определить, расположены ли цифры заданного числа в нём по возрастанию слева направо.*/
 using System;
 using System.Collections.Generic;
 using System.Linq;
