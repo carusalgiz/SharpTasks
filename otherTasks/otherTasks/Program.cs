@@ -10,6 +10,10 @@ namespace otherTasks
 {   
     class Program
     {
+        static int ReadInt()
+        {
+           return int.Parse(Console.ReadLine());
+        }
         static void TaskOne()
         {
             /* Определить, расположены ли цифры заданного числа в нём по возрастанию слева направо.*/
@@ -35,17 +39,17 @@ namespace otherTasks
             /*Две окружности заданы координатами центров и радиусами. 
              * Написать программу, определяющую, пересекаются ли они в точности в одной точке.*/
             Console.WriteLine("Введите x1: ");
-            var x1 = int.Parse(Console.ReadLine());
+            int x1 = ReadInt();
             Console.WriteLine("Введите y1: ");
-            var y1 = int.Parse(Console.ReadLine());
+            int y1 = ReadInt();
             Console.WriteLine("Введите R1: ");
-            var R1 = int.Parse(Console.ReadLine());
+            int R1 = ReadInt();
             Console.WriteLine("Введите x2: ");
-            var x2 = int.Parse(Console.ReadLine());
+            int x2 = ReadInt();
             Console.WriteLine("Введите y2: ");
-            var y2 = int.Parse(Console.ReadLine());
+            int y2 = ReadInt();
             Console.WriteLine("Введите R2: ");
-            var R2 = int.Parse(Console.ReadLine());
+            int R2 = ReadInt();
             double lineAmongPoints = Math.Sqrt(Math.Pow((x2-x1),2)+ Math.Pow((y2 - y1), 2));
             int twoRads = R1 + R2;
             if (lineAmongPoints < twoRads)
@@ -93,7 +97,7 @@ namespace otherTasks
         static void Main(string[] args)
         {
             Console.Write("Введите номер задания для выполнения (0 - выход): ");
-            var answer = int.Parse(Console.ReadLine());
+            int answer = ReadInt();
             do
             {
                 switch (answer)
@@ -106,17 +110,17 @@ namespace otherTasks
                         break;
                     case 3:
                         Console.WriteLine("Введите x1: ");
-                        var x1 = int.Parse(Console.ReadLine());
-                        Console.WriteLine("Введите x2: ");
-                        var x2 = int.Parse(Console.ReadLine());
-                        Console.WriteLine("Введите x3: ");
-                        var x3 = int.Parse(Console.ReadLine());
+                        int x1 = ReadInt();
                         Console.WriteLine("Введите y1: ");
-                        var y1 = int.Parse(Console.ReadLine());
+                        int y1 = ReadInt();
+                        Console.WriteLine("Введите x2: ");
+                        int x2 = ReadInt();
                         Console.WriteLine("Введите y2: ");
-                        var y2 = int.Parse(Console.ReadLine());
+                        int y2 = ReadInt();
+                        Console.WriteLine("Введите x3: ");
+                        int x3 = ReadInt();  
                         Console.WriteLine("Введите y3: ");
-                        var y3 = int.Parse(Console.ReadLine());
+                        int y3 = ReadInt();
                         TaskThree(x1, x2, x3, y1, y2, y3);
                         break;
                     case 4:
