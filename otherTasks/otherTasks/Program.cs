@@ -11,7 +11,15 @@ namespace otherTasks
     {
         static int ReadInt()
         {
-           return int.Parse(Console.ReadLine());
+            int j;
+            if (int.TryParse(Console.ReadLine(), out j))
+            {
+                return j;
+            } else
+            {
+                Console.WriteLine("Повторите ввод. Допускаются только числа.");
+                return ReadInt();
+            }
         }
         static void TaskOne()
         {
@@ -31,7 +39,6 @@ namespace otherTasks
                     break;
                 }
             }
-            Console.ReadKey();
         }
         static void TaskTwo()
         {
@@ -61,7 +68,6 @@ namespace otherTasks
             {
                 Console.WriteLine("Окружности не пересекаются");
             }
-            Console.ReadKey();
         }
         static void TaskThree(int x1, int x2, int x3, int y1, int y2, int y3)
         {
@@ -80,25 +86,51 @@ namespace otherTasks
             Console.WriteLine("Введите число: ");
             var num = Console.ReadLine();
             int evenNumber = 0, oddNumber = 0;
+            bool check = false;
             for(int i = 0; i < num.ToCharArray().Length; i++)
             {
-                if((i % 2) == 0)
+                if ((i % 2) == 0)
                 {
-                    evenNumber += int.Parse(num.ToCharArray()[i].ToString());
+                    int j;
+                    if (int.TryParse(num, out j))
+                    {
+                        check = true;
+                        evenNumber += int.Parse(num.ToCharArray()[i].ToString());  
+                    } else
+                    {
+                        check = false;
+                        Console.WriteLine("Введено не число.");
+                        break;
+                    }
+                      
                 } else
                 {
-                    
-                    oddNumber += int.Parse(num.ToCharArray()[i].ToString()); ;
+                    int j;
+                    if (int.TryParse(num, out j))
+                    {
+                        check = true;
+                        oddNumber += int.Parse(num.ToCharArray()[i].ToString());
+                    }
+                    else
+                    {
+                        check = false;
+                        Console.WriteLine("Введено не число.");
+                        break;
+                    }
                 }
-            }  
-            Console.WriteLine(oddNumber + "-" + evenNumber + "=" + (oddNumber - evenNumber));
+            }
+            if (check == true)
+            {
+                Console.WriteLine(oddNumber + "-" + evenNumber + "=" + (oddNumber - evenNumber));
+            }           
         }
         static void Main(string[] args)
-        {
-            Console.Write("Введите номер задания для выполнения (0 - выход): ");
-            int answer = ReadInt();
+        {      
+            int answer;
             do
             {
+                Console.Write("Введите номер задания для выполнения (0 - выход): ");
+                answer = ReadInt();
                 switch (answer)
                 {
                     case 1:
