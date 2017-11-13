@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 
 namespace otherTasks
-{   
+{
     class Program
     {
         static int ReadInt()
@@ -29,13 +29,21 @@ namespace otherTasks
             char[] array = num.ToCharArray();
             for (int i = 0; i < array.Length; i++)
             {
-                if(array[i] < array[i + 1])
+                if (int.TryParse(num, out int j))
                 {
-                    Console.WriteLine(array[i] + "<" + array[i + 1] + " все ок");
-                    continue;
+                    if (array[i] < array[i + 1])
+                    {
+                        Console.WriteLine(array[i] + "<" + array[i + 1] + " все ок");
+                        continue;
+                    }
+                    else
+                    {
+                        Console.WriteLine(array[i] + ">" + array[i + 1] + " ошибочка");
+                        break;
+                    }
                 } else
                 {
-                    Console.WriteLine(array[i] + ">" + array[i + 1] + " ошибочка");
+                    Console.WriteLine("Повторите ввод. Допускаются только числа.");
                     break;
                 }
             }
@@ -56,7 +64,7 @@ namespace otherTasks
             int y2 = ReadInt();
             Console.WriteLine("Введите R2: ");
             int R2 = ReadInt();
-            double lineAmongPoints = Math.Sqrt(Math.Pow((x2-x1),2)+ Math.Pow((y2 - y1), 2));
+            double lineAmongPoints = Math.Sqrt(Math.Pow((x2 - x1), 2) + Math.Pow((y2 - y1), 2));
             int twoRads = R1 + R2;
             if (lineAmongPoints < twoRads)
             {
@@ -72,7 +80,7 @@ namespace otherTasks
         static void TaskThree(int x1, int x2, int x3, int y1, int y2, int y3)
         {
             /* Найти периметр треугольника по координатам его вершин. 
-             * (Определить функцию для расчёта длины отрезка по координатам его концов.)*/           
+             * (Определить функцию для расчёта длины отрезка по координатам его концов.)*/
             double side1 = Math.Sqrt(Math.Pow((x2 - x1), 2) + Math.Pow((y2 - y1), 2));
             double side2 = Math.Sqrt(Math.Pow((x3 - x2), 2) + Math.Pow((y3 - y2), 2));
             double side3 = Math.Sqrt(Math.Pow((x1 - x3), 2) + Math.Pow((y1 - y3), 2));
@@ -86,37 +94,24 @@ namespace otherTasks
             Console.WriteLine("Введите число: ");
             var num = Console.ReadLine();
             int evenNumber = 0, oddNumber = 0;
-            bool check = false;
-            for(int i = 0; i < num.ToCharArray().Length; i++)
+            bool check = true;
+            for (int i = 0; i < num.ToCharArray().Length; i++)
             {
-                if ((i % 2) == 0)
+                if (int.TryParse(num, out int j))
                 {
-                    int j;
-                    if (int.TryParse(num, out j))
-                    {
-                        check = true;
-                        evenNumber += int.Parse(num.ToCharArray()[i].ToString());  
-                    } else
-                    {
-                        check = false;
-                        Console.WriteLine("Введено не число.");
-                        break;
-                    }
-                      
-                } else
-                {
-                    int j;
-                    if (int.TryParse(num, out j))
-                    {
-                        check = true;
-                        oddNumber += int.Parse(num.ToCharArray()[i].ToString());
+                    if ((i % 2) == 0)
+                    {             
+                        evenNumber += int.Parse(num.ToCharArray()[i].ToString());
                     }
                     else
                     {
-                        check = false;
-                        Console.WriteLine("Введено не число.");
-                        break;
+                        oddNumber += int.Parse(num.ToCharArray()[i].ToString());
                     }
+                } else
+                {
+                    check = false;
+                    Console.WriteLine("Повторите ввод. Допускаются только числа.");
+                    break;
                 }
             }
             if (check == true)
