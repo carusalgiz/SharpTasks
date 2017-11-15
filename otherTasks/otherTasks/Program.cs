@@ -92,7 +92,8 @@ namespace otherTasks
              * Первое число равно сумме цифр исходного числа, стоящих на четных местах.
              * Второе число равно сумме цифр, стоящих на нечетных местах.*/
             Console.WriteLine("Введите число: ");
-            var num = Console.ReadLine();
+            int number = ReadInt();
+            string num = number.ToString();
             int evenNumber = 0, oddNumber = 0;
             bool check = true;
             for (int i = 0; i < num.ToCharArray().Length; i++)
