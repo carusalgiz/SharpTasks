@@ -62,7 +62,7 @@ namespace classes
                 number = int.Parse(Console.ReadLine());
                 if ((number >= 0) && (number < 500))
                 {
-                    Console.WriteLine(humans[number].ToString());
+                    Console.WriteLine(humans[number]);
                     Console.WriteLine("-----------------------");
                 }
                 else
